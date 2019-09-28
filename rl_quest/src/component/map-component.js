@@ -13,13 +13,13 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 const poiList = [
   {
-    name: 'Joggen gehen',
+    name: 'langsam gehen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
     loc: [51.51, -0.09],
     type: 'people'
   },
   {
-    name: 'Joggen gehen',
+    name: 'Schlafen gehen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
     loc: [51.61, -0.09],
     type: 'museums'
@@ -31,7 +31,7 @@ const poiList = [
     type: 'people'
   },
   {
-    name: 'Joggen gehen',
+    name: 'Trinken gehen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
     loc: [51.51, -0.29],
     type: 'museums'
@@ -45,9 +45,7 @@ const poiList = [
 ]
 
 export default function MapComp(props){
-    const [state, setState] = React.useState({
-        bottom: false
-    });
+    const [state, setState] = React.useState({});
 
     const toggleDrawer = (side, open) => event => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -57,28 +55,28 @@ export default function MapComp(props){
         setState({ ...state, [side]: open });
     };
 
-    const fullList = side => (
+    const fullList = (side, info) => (
         <div
             role="presentation"
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
         >
-            <POI name="Joggen gehen" desc="" /> // Temporary
+            <POI name={info.name} desc={info.desc} /> // Temporary
         </div>
     );
     
     let markers = poiList.filter(x => new RegExp(props.filter).test(x.type))
-      .map(x => <Marker onClick={toggleDrawer("bottom", true)} position={x.loc}>
+      .map(x => <Marker onClick={toggleDrawer(x.name, true)} position={x.loc}>
                     <SwipeableDrawer
                         disableBackdropTransition={!iOS} disableDiscovery={iOS}
                         anchor="bottom"
-                        open={state.bottom}
-                        onClose={toggleDrawer('bottom', false)}
-                        onOpen={toggleDrawer('bottom', true)}
+                        open={state[x.name]}
+                        onClose={toggleDrawer(x.name, false)}
+                        onOpen={toggleDrawer(x.name, true)}
                     >
-                        {fullList("bottom")}
+                        {fullList(x.name, x)}
                     </SwipeableDrawer>
-                    <Tooltip onClick={toggleDrawer("bottom", true)}>Tooltip for Marker</Tooltip>
+                    <Tooltip onClick={toggleDrawer(x.name, true)}>Tooltip for Marker</Tooltip>
                 </Marker>)
 
         return (
