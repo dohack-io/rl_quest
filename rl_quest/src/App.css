@@ -45,3 +45,27 @@ html, body, #mapid , #root{
 .LoginBox > * {
   margin: 15px 0;
 }
+
+.infoBox {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  min-height: 0;
+  transition: min-height 2s;
+}
+
+.fullscreen {
+  min-height: 100%;
+}
+
+.infoBox Button {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+
+.description {
+  color: #b2b2b2;
+  font-size: 0.8em;
+}
