@@ -18,18 +18,12 @@ class POI extends React.Component {
   
   render() {
     return <Card className={this.calcClasses()} onClick={this.toggleExpand}>
-      <h1>{this.props.name}</h1>
+      <div className="infoContent">
+        <h1>{this.props.name}</h1>
+        <div className="description">{this.props.desc}</div>
+      </div>
       <Button color="secondary" variant="contained">Teilnehmen</Button>
-      <tr>
-        <td>
-          <div className="description">{this.props.desc}</div>
-        </td>
-        <td>
-          <div className="xp">5.000.000 XP</div>
-        </td>
-      </tr>
-
-
+      <div className="xp">5.000.000 XP</div>
       </Card>
   }
 }

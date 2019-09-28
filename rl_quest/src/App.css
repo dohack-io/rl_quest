@@ -55,6 +55,10 @@ html, body, #mapid , #root{
   transition: min-height 2s;
 }
 
+.infoContent {
+  margin-right: 150px;
+}
+
 .fullscreen {
   min-height: 100%;
 }
