@@ -62,10 +62,16 @@ html, body, #mapid , #root{
 .infoBox Button {
   position: absolute;
   right: 40px;
-  top: 20px;
+  bottom: 20px;
 }
 
 .description {
   color: #b2b2b2;
   font-size: 0.8em;
 }
+.xp {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+

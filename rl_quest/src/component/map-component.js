@@ -9,6 +9,7 @@ import Divider from "@material-ui/core/Divider";
 import POI from './poi-component.js'
 
 const center = [51.505, -0.09];
+const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 export default function MapComp(){
     const [state, setState] = React.useState({
@@ -29,7 +30,7 @@ export default function MapComp(){
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
         >
-            <POI name="Joggen gehen" desc="Eine Runde um den Pott" /> // Temporary
+            <POI name="Joggen gehen" desc="Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf" /> // Temporary
         </div>
     );
 
@@ -37,11 +38,12 @@ export default function MapComp(){
             <Map center={center} zoom={13}>
                 {/* eslint-disable-next-line react/jsx-no-undef */}
                 <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+                    attribution='<a href="https://carto.com/" target="_blank">© CARTO</a> <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'
+                    url="https://api.maptiler.com/maps/voyager/{z}/{x}/{y}.png?key=kEZmsWQFuMcfFzQOScYa"
                 />
                 <Marker onClick={toggleDrawer("bottom", true)} position={[51.51, -0.09]}>
                     <SwipeableDrawer
+                        disableBackdropTransition={!iOS} disableDiscovery={iOS}
                         anchor="bottom"
                         open={state.bottom}
                         onClose={toggleDrawer('bottom', false)}
