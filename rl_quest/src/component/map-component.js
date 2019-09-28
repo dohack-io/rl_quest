@@ -11,7 +11,40 @@ import POI from './poi-component.js'
 const center = [51.505, -0.09];
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-export default function MapComp(){
+const poiList = [
+  {
+    name: 'Joggen gehen',
+    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
+    loc: [51.51, -0.09],
+    type: 'people'
+  },
+  {
+    name: 'Joggen gehen',
+    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
+    loc: [51.61, -0.09],
+    type: 'museums'
+  },
+  {
+    name: 'Verstecken spielen',
+    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
+    loc: [51.51, -0.19],
+    type: 'people'
+  },
+  {
+    name: 'Joggen gehen',
+    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
+    loc: [51.51, -0.29],
+    type: 'museums'
+  },
+  {
+    name: 'Joggen gehen',
+    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
+    loc: [51.55, -0.09],
+    type: 'people'
+  },
+]
+
+export default function MapComp(props){
     const [state, setState] = React.useState({
         bottom: false
     });
@@ -30,18 +63,12 @@ export default function MapComp(){
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
         >
-            <POI name="Joggen gehen" desc="Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf" /> // Temporary
+            <POI name="Joggen gehen" desc="" /> // Temporary
         </div>
     );
-
-        return (
-            <Map center={center} zoom={13}>
-                {/* eslint-disable-next-line react/jsx-no-undef */}
-                <TileLayer
-                    attribution='<a href="https://carto.com/" target="_blank">© CARTO</a> <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'
-                    url="https://api.maptiler.com/maps/voyager/{z}/{x}/{y}.png?key=kEZmsWQFuMcfFzQOScYa"
-                />
-                <Marker onClick={toggleDrawer("bottom", true)} position={[51.51, -0.09]}>
+    
+    let markers = poiList.filter(x => new RegExp(props.filter).test(x.type))
+      .map(x => <Marker onClick={toggleDrawer("bottom", true)} position={x.loc}>
                     <SwipeableDrawer
                         disableBackdropTransition={!iOS} disableDiscovery={iOS}
                         anchor="bottom"
@@ -52,7 +79,16 @@ export default function MapComp(){
                         {fullList("bottom")}
                     </SwipeableDrawer>
                     <Tooltip onClick={toggleDrawer("bottom", true)}>Tooltip for Marker</Tooltip>
-                </Marker>
+                </Marker>)
+
+        return (
+            <Map center={center} zoom={13}>
+                {/* eslint-disable-next-line react/jsx-no-undef */}
+                <TileLayer
+                    attribution='<a href="https://carto.com/" target="_blank">© CARTO</a> <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'
+                    url="https://api.maptiler.com/maps/voyager/{z}/{x}/{y}.png?key=kEZmsWQFuMcfFzQOScYa"
+                />
+                {markers}
             </Map>
         )
 }

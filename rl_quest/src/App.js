@@ -42,18 +42,19 @@ class LoginPage extends React.Component {
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { loggedIn: false }
+    this.state = { loggedIn: false, filter: '.*' }
   }
   
   finish = () => this.setState({ loggedIn: true })
+  filterChange = newFilter => this.setState({ filter: newFilter == 'all' ? '.*' : newFilter })
 
   render() {
     if(!this.state.loggedIn)
       return <LoginPage loginFinished={this.finish} />
     else
         return <div style={{ height: '100%', width: '100vw'}}>
-            <MapComp></MapComp>
-            <NavComp />
+            <MapComp filter={this.state.filter}></MapComp>
+            <NavComp handleChange={this.filterChange}/>
         </div>;
   }
 }
