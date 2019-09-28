@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 
 import MapComp from "./component/map-component";
+import NavComp from "./component/nav-component";
 
 function GoogleSignin() {
   return <div class="g-signin2" data-onsuccess=""></div>}
@@ -45,13 +46,14 @@ class App extends React.Component {
   }
   
   finish = () => this.setState({ loggedIn: true })
-  
+
   render() {
     if(!this.state.loggedIn)
       return <LoginPage loginFinished={this.finish} />
     else
         return <div style={{ height: '100%', width: '100vw'}}>
             <MapComp></MapComp>
+            <NavComp />
         </div>;
   }
 }
