@@ -6,6 +6,8 @@ import FolderIcon from '@material-ui/icons/Folder';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import MuseumIcon from '@material-ui/icons/Museum'
+import PeopleIcon from '@material-ui/icons/EmojiPeople'
 
 const useStyles = makeStyles({
     root: {
@@ -13,20 +15,25 @@ const useStyles = makeStyles({
     },
 });
 
-export default function LabelBottomNavigation() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState('recents');
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+export default class LabelBottomNavigation extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { value: 'all' }
+  }
+    handleChange = (event, newValue) => {
+        this.setState({value: newValue });
+        if(this.props.handleChange)
+          this.props.handleChange(newValue)
     };
 
+    render() {
     return (
-        <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-            <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
-            <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
+        <BottomNavigation value={this.state.value} onChange={this.handleChange} className={{ width: 500 }}>
+            <BottomNavigationAction label="Alle" value="all" icon={<LocationOnIcon />} />
+            <BottomNavigationAction label="Museen" value="museums" icon={<MuseumIcon />} />
             <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-            <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+            <BottomNavigationAction label="People" value="people" icon={<PeopleIcon />} />
         </BottomNavigation>
     );
+  }
 }
