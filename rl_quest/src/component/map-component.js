@@ -5,6 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
+import AvComp from "./avatar-component";
 
 import POI from './poi-component.js'
 
@@ -53,6 +54,7 @@ export default function MapComp(){
                     </SwipeableDrawer>
                     <Tooltip onClick={toggleDrawer("bottom", true)}>Tooltip for Marker</Tooltip>
                 </Marker>
+                <AvComp onClick={toggleDrawer("right", true)}  />
             </Map>
         )
 }

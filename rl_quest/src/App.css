@@ -75,3 +75,9 @@ html, body, #mapid , #root{
   top: 20px;
 }
 
+#av{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 400;
+}

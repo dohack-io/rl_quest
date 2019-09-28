@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import MapComp from "./component/map-component";
 import NavComp from "./component/nav-component";
 
+
 function GoogleSignin() {
   return <div class="g-signin2" data-onsuccess=""></div>}
 class LoginPage extends React.Component {
@@ -51,8 +52,9 @@ class App extends React.Component {
     if(!this.state.loggedIn)
       return <LoginPage loginFinished={this.finish} />
     else
-        return <div style={{ height: '100%', width: '100vw'}}>
+        return <div style={{ height: '92%', width: '100vw'}}>
             <MapComp></MapComp>
+
             <NavComp />
         </div>;
   }
