@@ -8,6 +8,7 @@ import Divider from "@material-ui/core/Divider";
 import AvComp from "./avatar-component";
 
 import POI from './poi-component.js'
+import ProfileComp from './profile-component';
 
 const center = [51.505, -0.09];
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -88,19 +89,17 @@ export default function MapComp(props){
                     url="https://api.maptiler.com/maps/voyager/{z}/{x}/{y}.png?key=kEZmsWQFuMcfFzQOScYa"
                 />
                 {markers}
-                <Marker onClick={toggleDrawer("bottom", true)} position={[51.51, -0.09]}>
-                    <SwipeableDrawer
-                        disableBackdropTransition={!iOS} disableDiscovery={iOS}
-                        anchor="bottom"
-                        open={state.bottom}
-                        onClose={toggleDrawer('bottom', false)}
-                        onOpen={toggleDrawer('bottom', true)}
-                    >
-                        {fullList("bottom")}
-                    </SwipeableDrawer>
-                    <Tooltip onClick={toggleDrawer("bottom", true)}>Tooltip for Marker</Tooltip>
-                </Marker>
-                <AvComp onClick={toggleDrawer("right", true)}  />
+
+                <AvComp onClick={toggleDrawer("right", true) }  />
+                <SwipeableDrawer
+                    disableBackdropTransition={!iOS} disableDiscovery={iOS}
+                    anchor="right"
+                    open={state.right}
+                    onClose={toggleDrawer("right", false)}
+                    onOpen={toggleDrawer("right", true)}
+                >
+                  <ProfileComp/>
+                </SwipeableDrawer>
             </Map>
         )
 }

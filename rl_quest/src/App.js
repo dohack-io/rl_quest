@@ -35,7 +35,7 @@ class LoginPage extends React.Component {
           onFailure={this.responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
-        <Button color="primary" variant="contained" onClick={this.dummyLogin} >Dummy Login</Button>
+        <Button color="primary" variant="contained" onClick={this.dummyLogin} >Überspringen</Button>
       </Box>;
   }
 }
@@ -53,7 +53,7 @@ class App extends React.Component {
     if(!this.state.loggedIn)
       return <LoginPage loginFinished={this.finish} />
     else
-        return <div style={{ height: '100%', width: '100vw'}}>
+        return <div style={{ height: '93%', width: '100vw'}}>
             <MapComp filter={this.state.filter}></MapComp>
             <NavComp handleChange={this.filterChange}/>
         </div>;

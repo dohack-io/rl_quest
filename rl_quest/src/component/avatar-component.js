@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function ImageAvatars() {
+export default function ImageAvatars(props) {
     const classes = useStyles();
 
     return (
@@ -23,6 +23,7 @@ export default function ImageAvatars() {
                 id="av"
                 alt="Remy Sharp"
                 src="https://lh3.googleusercontent.com/a-/AAuE7mBxHQfIQscfpge31jyUOAmDkxEdgurDvpJbIG3-"
+                onClick={props.onClick}
                 className={classes.bigAvatar}
             />
         </Grid>

@@ -37,9 +37,11 @@ html, body, #mapid , #root{
   padding: 25px;
   max-width: 450px;
   margin: 0 auto;
+  margin-top: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .LoginBox > * {
@@ -66,17 +68,26 @@ html, body, #mapid , #root{
 .infoBox Button {
   position: absolute;
   right: 40px;
-  bottom: 20px;
+  top: 20px;
 }
 
 .description {
   color: #b2b2b2;
   font-size: 0.8em;
 }
-.xp {
-  position: absolute;
-  right: 40px;
-  top: 20px;
+
+#card button{grid-area: button;}
+#card h1{grid-area: titel;}
+#card .description{grid-area: beschreibung;}
+#card .xp{grid-area: xp;}
+
+#card{
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 'titel xp'
+                        'beschreibung button';
+  margin: 3%;
 }
 
 #av{
