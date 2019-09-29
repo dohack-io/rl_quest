@@ -1,47 +1,44 @@
 import React from "react";
-import {Map, Marker, Circle, CircleMarker, Tooltip, Popup, TileLayer} from "react-leaflet";
+import {Map, Marker, Tooltip, TileLayer} from "react-leaflet";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import ListItemText from "@material-ui/core/ListItemText";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Divider from "@material-ui/core/Divider";
+
 import AvComp from "./avatar-component";
 
 import POI from './poi-component.js'
 import ProfileComp from './profile-component';
 
-const center = [51.505, -0.09];
+const center = [51.5044, 7.52722];
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 const poiList = [
   {
     name: 'langsam gehen',
-    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
-    loc: [51.51, -0.09],
+    desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew',
+    loc: [51.49, 7.47],
     type: 'people'
   },
   {
     name: 'Schlafen gehen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
-    loc: [51.61, -0.09],
+    loc: [51.49, 7.51],
     type: 'museums'
   },
   {
     name: 'Verstecken spielen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
-    loc: [51.51, -0.19],
+    loc: [51.29, 7.25],
     type: 'people'
   },
   {
     name: 'Trinken gehen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
-    loc: [51.51, -0.29],
+    loc: [51.51, 8.01],
     type: 'museums'
   },
   {
     name: 'Joggen gehen',
     desc: 'Eine Runde um den Pott sdfdsfdsf fdsfdfwe fewf ewfe fewf ef ef fef ef ew few fwefewfe fwef efwe fefewf',
-    loc: [51.55, -0.09],
+    loc: [51.47, 7.46],
     type: 'people'
   },
 ]

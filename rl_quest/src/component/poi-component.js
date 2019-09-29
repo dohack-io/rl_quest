@@ -22,8 +22,8 @@ class POI extends React.Component {
         <h1>{this.props.name}</h1>
         <div className="description">{this.props.desc}</div>
       </div>
-      <Button color="secondary" variant="contained">Teilnehmen</Button>
       <div className="xp">5.000.000 XP</div>
+      <Button color="secondary" variant="contained">Teilnehmen</Button>
       </Card>
   }
 }
