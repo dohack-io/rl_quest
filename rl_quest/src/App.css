@@ -37,7 +37,6 @@ html, body, #mapid , #root{
   padding: 25px;
   max-width: 450px;
   margin: 0 auto;
-  margin-top: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,3 +95,37 @@ html, body, #mapid , #root{
   top: 0px;
   z-index: 400;
 }
+
+#bild{
+  border-radius: 100%;
+  height: 80%;
+  width: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+
+
+.zeile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.spalte{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.zeile h2, .zeile h3{
+  margin: 15px;
+}
+
+#profile table{
+  margin-top: 30px;
+}
+
+

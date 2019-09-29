@@ -9,6 +9,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import AvComp from "./avatar-component";
+
 
 const useStyles = makeStyles({
     list: {
@@ -36,44 +38,49 @@ export default function TemporaryDrawer() {
         setState({ ...state, [side]: open });
     };
 
-    const sideList = side => (
-        <div
-            className={classes.list}
-            role="presentation"
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}
-        >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </div>
-    );
+
 
 
 
     return (
         <div>
-            <div>
-                Hallo
+            <div id="profile">
+                <div class="zeile" id="bilddiv">
+                    <img id="bild"  src="https://lh3.googleusercontent.com/a-/AAuE7mBxHQfIQscfpge31jyUOAmDkxEdgurDvpJbIG3-"></img>
+                </div>
+
+                <div class="spalte">
+                    <h2>Lvl. 3</h2>
+                    <h2>5000 XP</h2>
+
+                    <h3>Max</h3>
+                    <h3>Mustermann</h3>
+                </div>
+
+                <div className="zeile" >
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Stadt</th>
+                            <th>%</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Dortmund</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>Köln</td>
+                            <td>63%</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
-            <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-                {sideList('right')}
-            </Drawer>
         </div>
     );
 }
