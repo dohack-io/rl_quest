@@ -1,6 +1,6 @@
 # Reallife Questsystem
 
-## Description 
+## Description
 This project aims to help newcomers to explore a given city. It provides a list of quests,
 which each person can complete in order to gain experience and level up his character.
 The quests consist of user generated quests, which allow city newcomers to connect to
@@ -40,11 +40,24 @@ which resulted in a huge time loss until we got it working.
 Jonas Aqua is 18 years old and starts to study computer science this semester. He works
 in Frontend with React and React Native and Backend with node.js and express.js
 
+Emir Gülec is 21 years old and studies business and information systems engineering.
+Skills: Java, HTML, JS, CSS but no experience with our used framework react.
+
+Can Ceylan is 22 years old and studies business and information systems engineering.
+Skills: Copy paste, Java, HTML, JS, CSS.
+
+Sven is 23 years old and studies computer science.
+Skills include Java, C++, HTML, JS, CSS, but no experience with frameworks like Angular and React.js
+
 ## What's next for your project?
-//TODO: is there anything you've planned to work on after this hackathon? you've got some ideas of features to add? 
+The next step in our project is the integration of frontend and Backend
+
+Features that could be added soon:
+-user generated quests
 
 ## How does it look?
-//TODO: got any screenshots? post them here!
+![Login Page](screenshot/login.PNG)
+![Map Page](screenshot/map.PNG)
+![Profile Page](screenshot/profile.PNG)
 
 ## Anything to add?
-//TODO: add additional information. Is there soemthing you couldn't mention before? Do you have some videos or demos of your project?
