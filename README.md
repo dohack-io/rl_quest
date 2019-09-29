@@ -37,7 +37,8 @@ But sadly this implementation had some bugs (even the provided example didn't wo
 which resulted in a huge time loss until we got it working.
 
 ## About your team
-//TODO: describe each team member with their background knowledge
+Jonas Aqua is 18 years old and starts to study computer science this semester. He works
+in Frontend with React and React Native and Backend with node.js and express.js
 
 ## What's next for your project?
 //TODO: is there anything you've planned to work on after this hackathon? you've got some ideas of features to add? 
