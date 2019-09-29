@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Leaflet from 'leaflet';
 import GoogleLogin from 'react-google-login'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
