@@ -56,8 +56,8 @@ Features that could be added soon:
 -user generated quests
 
 ## How does it look?
-![Login Page](screenshot/login.PNG)
-![Map Page](screenshot/map.PNG)
-![Profile Page](screenshot/profile.PNG)
+![Login Page](screenshots/login.PNG)
+![Map Page](screenshots/map.PNG)
+![Profile Page](screenshots/profile.PNG)
 
 ## Anything to add?
